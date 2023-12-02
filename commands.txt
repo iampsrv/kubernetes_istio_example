@@ -14,6 +14,12 @@ docker push psrv3/weather-service
 docker compose build
 docker compose up
 
+[https://minikube.sigs.k8s.io/docs/handbook/addons/istio/]
+minikube start --memory=8192mb --cpus=4
+minikube addons enable istio-provisioner
+minikube addons enable istio
+kubectl get po -n istio-system
+
 kubectl create -f app-deployment.yml
 kubectl create -f time-deployment.yml
 kubectl create -f weather-deployment.yml
